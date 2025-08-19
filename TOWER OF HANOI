@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int c=0; //  creating the  variable for the step counting 
+
+void TOH(int n,char src, char aux,char dest){// creating the function of the toh tower of hanoi
+if(n==1){
+    c++; // count incresing 
+    cout<<" move  "<<src<<" to "<<dest<<endl; // moving of disk if n = 1
+    }else{
+    TOH(n-1,src,dest,aux); // the moving the disks of n-1 
+    TOH(1,src,aux,dest);
+    TOH(n-1,aux,src,dest);
+    }
+}
+
+int main (){
+    int n; // describing the variable for no of disk 
+    cout<<"enter the number of disk :";
+    cin >>n; // input for no of disk 
+    TOH(n,'A','B','C'); // the layer of the hanoi
+    cout<<endl<< "the no steps taken to coomplete : "<<c; // print no of steps
+
+}
